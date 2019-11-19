@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--https://stackoverflow.com/questions/23202346/how-can-i-hide-a-button-if-javascript-is-disabled-->
+<meta charset="UTF-8">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<title>Main</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js">
+</script>
+</head>
+<body>
+
+<style>
+.answer, .toggle-content {
+	display: none;
+}
+
+.toggle-content.is-visible {
+	display: block;
+}
+</style>
+
+<div class="question">
+<p>What do you think?</p>
+<p><button name="one" onclick="clicky(this);">Reveal</button></p>
+</div>
+<div class="question">
+<p>What do you reaLLY think?</p>
+<p><button name="two" onclick="clicky(this)">Reveal</button></p>
+</div>
+<div class="question">
+<p>Really, what do you think?</p>
+<p><button name="three" onclick="clicky(this)">Reveal</button></p>
+</div>
+
+<div class="answer" id="one">
+I don't know
+</div>
+<div class="answer" id="two">
+I don't know, really
+</div>
+<div class="answer" id="three">
+Really, I don't know
+</div>
+<div id="uno" class="toggle-content is-visible">Visible by default.<br>
+<button onclick="deuce();">Show/hide</button><br>
+
+</div>
+
+<div id="seek" class="toggle-content">Hidden by default.
+<button onclick="toggle(uno);">Show/hide</button><br>
+</div>
+<script type="text/javascript">
+function clicky (theAnswer) {
+console.log("Is this thing on?");
+var number = theAnswer.name;
+console.log(number);
+var response = document.getElementById(number).innerHTML;
+var holder = theAnswer.parentNode;
+holder.innerHTML += response;
+};
+</script>
+<script>
+function deuce() {
+console.log("funnies")
+$("#seek").toggle();
+};
+function toggle (x){
+x.style.display = 'none';
+console.log('fired');
+};
+function linkedIn (){
+    
+    var x = document.getElementsByClassName("IN-widget");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.verticalAlign = "top";
+    }
+}
+
+setTimeout(linkedIn,1000);
+linkedIn();
+</script>
+<script>
+        $(function(){
+            $( "#drag" ).attr({
+            href: "javascript:void(location.href=%22https://www.example.com%22;"});
+        });
+</script>
+
+<script type="text/javascript">
+	function hideFields(){
+        var selectOption = document.getElementById('q18');
+        var getType = document.getElementById('queryType').innerHTML;
+
+        
+        selectOption.setAttribute("autocomplete", "off");
+                if (queryType !== undefined && queryType !== null) { 
+        selectOption.selectedIndex = getType;
+        } else {
+        selectOption.selectedIndex = "1";           
+        };
+        
+        $( "#form_email" ).attr({
+        action: "https://www.example.com?accordion=research"});
+	};
+</script>
+</body>
+</html>
